@@ -1,0 +1,67 @@
+<nav class="bg-blue-600 p-4 flex items-center justify-between">
+  <!-- Logo -->
+  <div class="text-white text-xl font-bold">
+    <a href="/">VPN Manager</a>
+  </div>
+  <!-- Menu -->
+  <div class="flex items-center space-x-6">
+    <div class="flex items-center space-x-2">
+      <a href="/siempu" class="text-white hover:text-gray-200">Home</a>
+      <a href="/siempu/stats" class="text-white hover:text-gray-200">Monitor</a>
+      <a href="/siempu/clients" class="text-white hover:text-gray-200"
+        >Clients</a
+      >
+      <a href="/siempu/payments" class="text-white hover:text-gray-200"
+        >Payments</a
+      >
+    </div>
+    <!-- Dropdown Settings Admin -->
+    <div class="relative">
+      <button
+        class="text-white hover:text-gray-200 focus:outline-none flex items-center"
+        id="dropdownToggle"
+      >
+        <%= adminName %>
+        <svg
+          class="w-4 h-4 ml-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+      <div
+        class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden"
+        id="dropdownMenu"
+      >
+        <a
+          href="/update-profile"
+          class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+          >Update Profil</a
+        >
+        <a
+          href="/logout"
+          class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Script untuk toggle dropdown
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("dropdownToggle");
+    const menu = document.getElementById("dropdownMenu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  });
+</script>

@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "axios": "^1.8.1",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.12.0",
+    "path": "^0.12.7",
+    "sanitize-html": "^2.14.0",
+    "systeminformation": "^5.25.11"
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "concurrently": "^9.1.2",
+    "module-alias": "^2.2.3",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemailer": "^6.10.0",
+    "tailwindcss": "^3.4.17",
+    "nodemon": "^3.1.9"
+  },
+  "name": "vpnmanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./Apps/Web/Assets/css/input.css -o ./Apps/Web/Assets/css/styles.css --watch",
+    "start": "node App.js",
+    "dev": "nodemon App.js",
+    "develop": "concurrently \"npm run dev\" \"npm run build:css\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

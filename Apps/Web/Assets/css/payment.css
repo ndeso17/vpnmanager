@@ -1,0 +1,33 @@
+/* Untuk modal zoom */
+.swal-wide {
+  width: 80% !important;
+  max-width: 800px;
+}
+
+.zoom-container {
+  text-align: center;
+  position: relative;
+}
+
+.zoom-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  z-index: 999;
+}
+
+.zoom-img {
+  transition: transform 0.3s ease; /* Animasi halus saat zoom */
+}
+
+/* Warna tombol saat disabled */
+button:disabled {
+  color: gray !important; /* Warna abu-abu untuk teks */
+  cursor: not-allowed; /* Kursor tidak aktif */
+  opacity: 0.6; /* Sedikit transparan */
+}
+
+button:disabled:hover {
+  text-decoration: none; /* Hilangkan underline saat hover */
+}

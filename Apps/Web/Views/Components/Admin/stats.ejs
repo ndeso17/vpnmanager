@@ -1,0 +1,42 @@
+<div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mb-6">
+  <div class="bg-white p-4 rounded-lg shadow">
+    <h2 class="text-xl font-semibold text-gray-700 mb-2">Bandwidth</h2>
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <!-- Canvas Download -->
+      <div class="w-full md:w-1/2">
+        <h3 class="text-lg font-medium text-gray-600 mb-2">Download</h3>
+        <canvas id="downloadChartBandwidth" class="w-full h-40"></canvas>
+        <!-- Tinggi 160px -->
+      </div>
+      <!-- Canvas Upload -->
+      <div class="w-full md:w-1/2">
+        <h3 class="text-lg font-medium text-gray-600 mb-2">Upload</h3>
+        <canvas id="uploadChartBandwidth" class="w-full h-40"></canvas>
+        <!-- Tinggi 160px -->
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      <div class="bg-white p-4 rounded-lg shadow">
+        <div class="flex flex-col md:flex-row justify-between">
+          <h2 class="text-xl font-semibold text-gray-700 mb-2">
+            Bandwidth Usage
+          </h2>
+        </div>
+        <canvas id="kuotaChartBandwidth"></canvas>
+        <!-- Ukuran kecil: 192px x 192px -->
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">CPU Usage</h2>
+        <canvas id="cpuChart"></canvas>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">RAM Usage</h2>
+        <canvas id="ramChart"></canvas>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Disk Usage</h2>
+        <canvas id="diskChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

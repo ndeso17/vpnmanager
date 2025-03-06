@@ -1,0 +1,130 @@
+{
+    "log": {
+        "loglevel": "info",
+        "access": "/var/log/xray/access.log",
+        "error": "/var/log/xray/error.log"
+    },
+    "api": {
+        "tag": "api",
+        "services": [
+            "StatsService",
+            "HandlerService",
+            "ReflectionService"
+        ]
+    },
+    "inbounds": [
+        {
+            "port": 10000,
+            "listen": "127.0.0.1",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "17120885-b18d-440f-ae53-0ac28dad818c",
+                        "alterId": 0,
+                        "email": "anlap05",
+                        "level": 1,
+                        "quota": 536870912000,
+                        "expiry": "2025-03-26T21:42:03.257Z",
+                        "enable": true
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/vmess"
+                }
+            },
+            "tag": "vmess-http"
+        },
+        {
+            "port": 10001,
+            "listen": "127.0.0.1",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "17120885-b18d-440f-ae53-0ac28dad818c",
+                        "alterId": 0,
+                        "email": "anlap05",
+                        "level": 1,
+                        "quota": 536870912000,
+                        "expiry": "2025-06-26T21:42:03.257Z",
+                        "enable": true
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/vmess"
+                }
+            },
+            "tag": "vmess-https"
+        },
+        {
+            "port": 10002,
+            "listen": "127.0.0.1",
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "127.0.0.1"
+            },
+            "tag": "api"
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "blocked"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "api"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": [
+                    "api"
+                ],
+                "outboundTag": "api"
+            },
+            {
+                "type": "field",
+                "outboundTag": "blocked",
+                "ip": [
+                    "geoip:private"
+                ]
+            }
+        ]
+    },
+    "policy": {
+        "levels": {
+            "1": {
+                "handshake": 4,
+                "connIdle": 300,
+                "uplinkOnly": 0,
+                "downlinkOnly": 0,
+                "statsUserUplink": true,
+                "statsUserDownlink": true,
+                "bufferSize": 2048
+            }
+        },
+        "system": {
+            "statsInboundUplink": true,
+            "statsInboundDownlink": true
+        }
+    },
+    "stats": {}
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - VPN Manager</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col">
+    <!-- Include Navbar -->
+    <%- include('@navbar', { adminName: adminName }) %>
+
+    <main class="flex-1 container mx-auto py-6 px-4">
+      <h1 class="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+      <p class="text-gray-600">
+        Selamat datang, <%= adminName %>! Ini adalah halaman dashboard Anda.
+      </p>
+    </main>
+  </body>
+</html>

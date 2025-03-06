@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - VPN Manager</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Chart.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Login</h1>
+
+      <% if (step === "username") { %>
+      <!-- Form untuk username dan password -->
+      <form action="/auth/login" method="POST">
+        <div class="mb-4">
+          <label for="username" class="block text-gray-700 font-medium mb-2"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Masukkan username"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label for="password" class="block text-gray-700 font-medium mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Masukkan password"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+        >
+          Login
+        </button>
+      </form>
+      <% } else if (step === "pin") { %>
+      <!-- Form untuk PIN -->
+      <form action="/auth/loginpin" method="POST">
+        <div class="mb-6">
+          <label for="pin" class="block text-gray-700 font-medium mb-2"
+            >PIN</label
+          >
+          <input
+            type="password"
+            id="authPin"
+            name="authPin"
+            placeholder="Masukkan PIN"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+        >
+          Submit PIN
+        </button>
+      </form>
+      <% } %> <% if (message) { %>
+      <p
+        class="mt-4 text-center text-sm <%= message.includes('berhasil') ? 'text-green-600' : 'text-red-600' %>"
+      >
+        <%= message %>
+      </p>
+      <% } %>
+    </div>
+  </body>
+</html>

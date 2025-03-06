@@ -1,0 +1,75 @@
+<!-- components/list-client.ejs -->
+<div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mb-6">
+  <div class="bg-white p-4 rounded-lg shadow">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-semibold text-gray-700">List Client Aktif</h2>
+      <div class="flex items-center gap-2">
+        <input
+          type="text"
+          id="searchInputClient"
+          placeholder="Search by email or Telegram ID..."
+          class="border border-gray-300 rounded-lg px-3 py-1 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          id="refreshButtonClient"
+          class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center gap-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+            />
+          </svg>
+          Refresh
+        </button>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="p-2">No</th>
+            <th class="p-2">Email</th>
+            <th class="p-2">Id Telegram</th>
+            <th class="p-2">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="clientsTable">
+          <% clients.forEach((client, index) => { %>
+          <tr>
+            <td class="p-2 border-t"><%= index + 1 %></td>
+            <td class="p-2 border-t"><%= client.email %></td>
+            <td class="p-2 border-t"><%= client.idTelegram %></td>
+            <td class="p-2 border-t">
+              <button
+                id="viewButtonClient"
+                class="text-green-500 hover:underline"
+              >
+                View
+              </button>
+              <button
+                id="deleteButtonClient"
+                class="text-red-500 hover:underline ml-2"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <div
+      id="clientsPagination"
+      class="flex justify-center gap-2 mt-4 flex-wrap"
+    ></div>
+  </div>
+</div>
