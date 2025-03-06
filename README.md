@@ -6,3 +6,5 @@ cd vpnmanager
 npm install
 npm run develop
 ```
+
+## INI BELUM SEMPURNA, HANYA BASIC SAJA UNTUK MEMANTAU STATUS SERVER.
